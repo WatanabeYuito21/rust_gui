@@ -1,5 +1,5 @@
 use iced::Element;
-use iced::widget::{button, column, text};
+use iced::widget::{button, column, row, text};
 
 #[derive(Debug, Clone)]
 enum Message {
@@ -8,9 +8,12 @@ enum Message {
 
 fn view(counter: &u64) -> Element<Message> {
     // button(text(counter)).on_press(Message::Increment).into()
-    column![
-        text(counter.to_string()),
-        button("This is button").on_press(Message::Increment)
+    row![
+        text("This is Text"),
+        column![
+            text(counter.to_string()),
+            button("This is button").on_press(Message::Increment)
+        ]
     ]
     .into()
 }
