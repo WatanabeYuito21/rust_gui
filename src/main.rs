@@ -16,7 +16,7 @@ enum Message {
 fn view(counter: &Counter) -> Element<Message> {
     column![
         text_input("Type something hire...", &counter.content).on_input(Message::ContentChanged),
-        text("This is Text"),
+        text(format!("This is Text: {}", counter.content)),
         row![
             button("This is button").on_press(Message::Increment),
             text(format!("This is counter: {}", counter.value)),
