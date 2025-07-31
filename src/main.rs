@@ -8,9 +8,9 @@ enum Message {
 
 fn view(counter: &u64) -> Element<Message> {
     // button(text(counter)).on_press(Message::Increment).into()
-    row![
+    column![
         text("This is Text"),
-        column![
+        row![
             text(counter.to_string()),
             button("This is button").on_press(Message::Increment)
         ]
