@@ -4,17 +4,18 @@ use iced::widget::{button, column, row, text, text_input};
 #[derive(Default)]
 struct Counter {
     value: u64,
+    content: String,
 }
 
 #[derive(Debug, Clone)]
 enum Message {
     Increment,
+    ContentChanged(String),
 }
 
 fn view(counter: &Counter) -> Element<Message> {
-    // button(text(counter)).on_press(Message::Increment).into()
     column![
-        text_input("text", "text2"),
+        text_input("Type something hire...", &counter.content).on_input(Message::ContentChanged),
         text("This is Text"),
         row![
             button("This is button").on_press(Message::Increment),
@@ -29,6 +30,9 @@ fn view(counter: &Counter) -> Element<Message> {
 fn update(counter: &mut Counter, message: Message) {
     match message {
         Message::Increment => counter.value += 1,
+        Message::ContentChanged(content) => {
+            counter.content = content;
+        }
     }
 }
 
