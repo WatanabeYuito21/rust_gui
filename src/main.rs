@@ -17,7 +17,7 @@ fn view(counter: &Counter) -> Element<Message> {
         text("This is Text"),
         row![
             button("This is button").on_press(Message::Increment),
-            text(counter.value.to_string()),
+            text(format!("This is counter: {}", counter.value)),
         ]
         .spacing(10)
     ]
