@@ -19,6 +19,7 @@ fn view(counter: &Counter) -> Element<Message> {
             text(counter.value.to_string()),
             button("This is button").on_press(Message::Increment)
         ]
+        .spacing(10)
     ]
     .spacing(10)
     .into()
