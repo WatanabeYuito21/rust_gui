@@ -1,5 +1,5 @@
 use iced::Element;
-use iced::widget::{button, column, row, text};
+use iced::widget::{button, column, row, text, text_input};
 
 #[derive(Default)]
 struct Counter {
@@ -14,12 +14,13 @@ enum Message {
 fn view(counter: &Counter) -> Element<Message> {
     // button(text(counter)).on_press(Message::Increment).into()
     column![
+        text_input("text", "text2"),
         text("This is Text"),
         row![
             button("This is button").on_press(Message::Increment),
             text(format!("This is counter: {}", counter.value)),
         ]
-        .spacing(10)
+        .spacing(10),
     ]
     .spacing(10)
     .into()
